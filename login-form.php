@@ -34,13 +34,19 @@
         if(!$flag) {
             $fileData = read();
             $data= json_decode($fileData);
-            if($userName1 === $data->Username and $password1 === $data->Password) {
+
+            ;
+            for ($i=0; $i <sizeof($data) ; $i++) { 
+                if($userName1 === $data[$i]->Username and $password1 === $data[$i]->Password) {
                 header("Location: welcome.html");
             }
             else{
 
                 $errorMessage = "username or password is incorrect";
             }
+            }
+            
+            
         }
         else {
             $errorMessage = "Please enter your username and password";
